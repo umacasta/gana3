@@ -18,10 +18,10 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '1196008671864934');  // Asegúrate de que este ID sea el correcto para tu cuenta
+    fbq('init', '1196008671864934');
     
-    // Desactiva el modo de prueba
-    var testMode = false;  // Cambia esto a 'false' cuando termines de probar
+    // Activar test event code solo si testMode es true
+    var testMode = true;  // Cambia esto a 'false' cuando termines de probar
     if (testMode) {
         fbq('track', 'PageView', {
             event_source_url: window.location.href,
@@ -43,11 +43,16 @@
             <p class="highlight">Carga mínima de <strong>$3000</strong></p>
             <p>Únete y vive la mejor experiencia.</p>
             <!-- Aquí se ha agregado el evento Lead en el enlace de WhatsApp -->
-            <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" 
-               onclick="fbq('track', 'Lead');"> 💬 Hablar por WhatsApp
-            </a>
+            <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link"> 💬 Hablar por WhatsApp </a>
         </div>
     </div>
+
+    <script>
+        // Agregar un event listener para el evento 'Lead' al hacer clic en el enlace
+        document.getElementById('whatsapp-link').addEventListener('click', function() {
+            fbq('track', 'Lead');
+        });
+    </script>
 </body>
 </html>
 
