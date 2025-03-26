@@ -11,7 +11,7 @@
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
@@ -42,7 +42,10 @@
             <h1 class="animated-title">🔥 ¡Empieza a ganar ahora! 🔥</h1>
             <p class="highlight">Carga mínima de <strong>$3000</strong></p>
             <p>Únete y vive la mejor experiencia.</p>
-            <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta">💬 Hablar por WhatsApp</a>
+            <!-- Aquí se ha agregado el evento Lead en el enlace de WhatsApp -->
+            <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" 
+               onclick="fbq('track', 'Lead');"> 💬 Hablar por WhatsApp
+            </a>
         </div>
     </div>
 </body>
