@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ganamos.co - ¡Gana y Disfruta!</title>
-    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que style.css esté en la misma carpeta -->
+    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     
     <!-- Meta Pixel Code -->
@@ -18,10 +18,10 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '1196008671864934');
+    fbq('init', '1196008671864934');  // Asegúrate de que este ID sea el correcto para tu cuenta
     
-    // Activar test event code solo si testMode es true
-    var testMode = true;  // Cambia esto a 'false' cuando termines de probar
+    // Desactiva el modo de prueba
+    var testMode = false;  // Cambia esto a 'false' cuando termines de probar
     if (testMode) {
         fbq('track', 'PageView', {
             event_source_url: window.location.href,
@@ -50,4 +50,5 @@
     </div>
 </body>
 </html>
+
 
