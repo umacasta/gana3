@@ -19,7 +19,17 @@
     'https://connect.facebook.net/en_US/fbevents.js');
 
     fbq('init', '1196008671864934');
-    fbq('track', 'PageView', {event_source_url: window.location.href});
+    
+    // Activar test event code solo si testMode es true
+    var testMode = true;  // Cambia esto a 'false' cuando termines de probar
+    if (testMode) {
+        fbq('track', 'PageView', {
+            event_source_url: window.location.href,
+            test_event_code: 'TEST21893'  // Test Event Code de Facebook
+        });
+    } else {
+        fbq('track', 'PageView', { event_source_url: window.location.href });
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1196008671864934&ev=PageView&noscript=1"
