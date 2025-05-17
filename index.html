@@ -87,6 +87,34 @@
       text-shadow: 0 0 10px #000;
     }
 
+    .gift-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: url('https://cdn-icons-png.flaticon.com/512/4208/4208440.png') no-repeat center center;
+      background-size: contain;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      z-index: 999;
+    }
+
+    .gift-popup {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #111;
+      color: #fff;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      padding: 15px;
+      width: 220px;
+      box-shadow: 0 0 10px #ffd700;
+      display: none;
+      z-index: 9999;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
@@ -109,6 +137,11 @@
     @keyframes backgroundMove {
       0% { background-position: center center; }
       100% { background-position: center 10%; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     @media (max-width: 768px) {
@@ -140,7 +173,7 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       const countdownElement = document.getElementById("countdown");
-      let timeLeft = 15 * 60; // 15 minutos en segundos
+      let timeLeft = 15 * 60;
       setInterval(() => {
         if (timeLeft <= 0) return;
         timeLeft--;
@@ -148,6 +181,12 @@
         const seconds = timeLeft % 60;
         countdownElement.textContent = `⏳ ¡Quedan ${minutes}:${seconds.toString().padStart(2, '0')} para reclamar tu bono!`;
       }, 1000);
+
+      const giftBox = document.getElementById("giftBox");
+      const giftPopup = document.getElementById("giftPopup");
+      giftBox.addEventListener("click", () => {
+        giftPopup.style.display = giftPopup.style.display === "none" ? "block" : "none";
+      });
     });
   </script>
   <noscript>
@@ -169,6 +208,10 @@
     <div class="emoji-deco deco4">🎲</div>
   </div>
 
+  <!-- Caja de regalo flotante -->
+  <div class="gift-box" id="giftBox"></div>
+  <div class="gift-popup" id="giftPopup">🎁 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
+
   <script>
     document.getElementById('whatsapp-link').addEventListener('click', function() {
       fbq('track', 'Lead');
@@ -176,5 +219,4 @@
   </script>
 </body>
 </html>
-
 
