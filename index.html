@@ -8,10 +8,11 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #2a003f, #5f00b2);
-      overflow: hidden;
       color: white;
       text-align: center;
+      background: url('perro-morado.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
     }
     .hero {
       height: 100vh;
@@ -20,45 +21,49 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      backdrop-filter: brightness(0.7);
     }
     h1 {
       font-size: 3rem;
-      text-shadow: 0 0 10px #e600ff;
+      text-shadow: 0 0 15px #ff00f7;
       margin-bottom: 1rem;
     }
     p {
       font-size: 1.2rem;
       margin: 0.5rem 0;
+      text-shadow: 0 0 5px #000;
     }
     .cta {
       margin-top: 20px;
       padding: 15px 30px;
-      background: #00ff99;
-      color: black;
+      background: #ffd700;
+      color: #000;
       font-weight: bold;
       border-radius: 30px;
       font-size: 1.1rem;
       text-decoration: none;
       display: inline-block;
-      transition: transform 0.2s;
+      box-shadow: 0 0 20px #ffd700;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .cta:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #ffffff;
     }
-    .emoji-money {
+    .emoji-deco {
       position: absolute;
-      font-size: 2rem;
-      animation: fall 5s linear infinite;
+      font-size: 2.5rem;
+      animation: float 6s ease-in-out infinite;
       opacity: 0.7;
     }
-    .money1 { left: 10%; animation-delay: 0s; }
-    .money2 { left: 40%; animation-delay: 1s; }
-    .money3 { left: 70%; animation-delay: 2s; }
-    .money4 { left: 85%; animation-delay: 3s; }
+    .deco1 { top: 10%; left: 15%; animation-delay: 0s; }
+    .deco2 { top: 30%; right: 10%; animation-delay: 2s; }
+    .deco3 { bottom: 15%; left: 25%; animation-delay: 4s; }
+    .deco4 { bottom: 10%; right: 20%; animation-delay: 1s; }
 
-    @keyframes fall {
-      0% { top: -50px; transform: rotate(0deg); }
-      100% { top: 100vh; transform: rotate(360deg); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
   </style>
   <script>
@@ -80,18 +85,15 @@
   <div class="hero">
     <h1>🔥 ¡REGÍSTRATE Y COMIENZA A GANAR! 🔥</h1>
     <p>Carga mínima: <strong>$3000</strong></p>
-    <p>✨ Retiros sin límite | 2000+ tragamonedas</p>
+    <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🎁 Bonos exclusivos</p>
     <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
 
-    <!-- Dinero cayendo -->
-    <div class="emoji-money money1">💰</div>
-    <div class="emoji-money money2">💸</div>
-    <div class="emoji-money money3">🪙</div>
-    <div class="emoji-money money4">💰</div>
+    <!-- Emojis decorativos casino -->
+    <div class="emoji-deco deco1">🎰</div>
+    <div class="emoji-deco deco2">💎</div>
+    <div class="emoji-deco deco3">🃏</div>
+    <div class="emoji-deco deco4">🎲</div>
   </div>
-
-  <!-- Perrito en pantalla -->
-  <img src="perro-morado.png" alt="Perrito Ganamos" style="position: absolute; bottom: 0; left: 0; width: 220px; z-index: 1;" />
 
   <script>
     document.getElementById('whatsapp-link').addEventListener('click', function() {
@@ -100,5 +102,6 @@
   </script>
 </body>
 </html>
+
 
 
