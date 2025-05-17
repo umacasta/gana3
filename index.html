@@ -14,6 +14,7 @@
       background-size: cover;
       background-attachment: scroll;
       overflow: hidden;
+      animation: backgroundMove 30s ease-in-out infinite alternate;
     }
     .hero {
       height: 100vh;
@@ -24,11 +25,14 @@
       position: relative;
       backdrop-filter: brightness(0.7);
       padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
     }
     h1 {
       font-size: 3rem;
-      text-shadow: 0 0 15px #ff00f7;
+      text-shadow: 0 0 15px #ff00f7, 0 0 30px #ff00f7;
       margin-bottom: 1rem;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
     }
     p {
       font-size: 1.2rem;
@@ -47,6 +51,19 @@
       display: inline-block;
       box-shadow: 0 0 20px #ffd700;
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-25deg);
+      animation: shine 2s infinite;
     }
     .cta:hover {
       transform: scale(1.1);
@@ -63,9 +80,35 @@
     .deco3 { bottom: 15%; left: 25%; animation-delay: 4s; }
     .deco4 { bottom: 10%; right: 20%; animation-delay: 1s; }
 
+    .countdown {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #000;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes neonGlow {
+      0% { text-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7; }
+      100% { text-shadow: 0 0 20px #ff00f7, 0 0 40px #ff00f7; }
+    }
+
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: center center; }
+      100% { background-position: center 10%; }
     }
 
     @media (max-width: 768px) {
@@ -94,6 +137,18 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1196008671864934');
     fbq('track', 'PageView');
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const countdownElement = document.getElementById("countdown");
+      let timeLeft = 15 * 60; // 15 minutos en segundos
+      setInterval(() => {
+        if (timeLeft <= 0) return;
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        countdownElement.textContent = `⏳ ¡Quedan ${minutes}:${seconds.toString().padStart(2, '0')} para reclamar tu bono!`;
+      }, 1000);
+    });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1196008671864934&ev=PageView&noscript=1" />
@@ -105,6 +160,7 @@
     <p>Carga mínima: <strong>$3000</strong></p>
     <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🏱 Bonos exclusivos</p>
     <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
+    <div class="countdown" id="countdown">⏳ ¡Quedan 15:00 para reclamar tu bono!</div>
 
     <!-- Emojis decorativos casino -->
     <div class="emoji-deco deco1">🎰</div>
