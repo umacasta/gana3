@@ -159,7 +159,52 @@
         font-size: 2rem;
       }
     }
-  </style>
+  .gift-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #ff0080;
+      border-radius: 50%;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #fff;
+      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .gift-box:hover {
+      box-shadow: 0 0 20px #fff, 0 0 30px #fff;
+    }
+
+    .gift-text {
+      position: absolute;
+      bottom: -30px;
+      background: #222;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .gift-box:active {
+      animation: flash 0.5s;
+    }
+
+    @keyframes flash {
+      0% { box-shadow: 0 0 5px #fff; }
+      50% { box-shadow: 0 0 25px #fff; }
+      100% { box-shadow: 0 0 5px #fff; }
+    }
+
+</style>
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -185,7 +230,7 @@
       const giftBox = document.getElementById("giftBox");
       const giftPopup = document.getElementById("giftPopup");
       giftBox.addEventListener("click", () => {
-        giftPopup.style.display = giftPopup.style.display === "none" ? "block" : "none";
+        window.open("https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario!!%20y%20mi%20bono%20sorpresa", "_blank");
       });
     });
   </script>
@@ -209,7 +254,7 @@
   </div>
 
   <!-- Caja de regalo flotante -->
-  <div class="gift-box" id="giftBox"></div>
+  <div class="gift-box" id="giftBox">🎁<span class="gift-text">¡Tocá acá para un regalo sorpresa!</span></div>
   <div class="gift-popup" id="giftPopup">🎁 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
 
   <script>
@@ -219,6 +264,7 @@
   </script>
 </body>
 </html>
+
 
 
 
