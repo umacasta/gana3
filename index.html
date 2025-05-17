@@ -1,56 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ganamos.co - ¡Gana y Disfruta!</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganamos.co - ¡Gana y Disfruta!</title>
+  <meta property="og:title" content="🎰 Ganamos.co - Regístrate y comenzá a ganar" />
+  <meta property="og:description" content="Carga mínima $3000 — Retiros sin límite — Bonos exclusivos — +2000 tragamonedas" />
+  <meta property="og:image" content="https://linkdecontacto.vercel.app/og-casino-preview.jpg" />
+  <meta property="og:url" content="https://linkdecontacto.vercel.app" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      background: url('https://linkdecontacto.vercel.app/fondo-casino-morado.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px #8000ff;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 5px 0;
+    }
+    .cta {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #00ff99;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: #00e68a;
+    }
+    .money {
+      position: absolute;
+      width: 60px;
+      animation: fall linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
 
-    <!-- Meta Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s) {
-            if(f.fbq) return;
-            n=f.fbq=function(){n.callMethod ?
-            n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
-            if(!f._fbq) f._fbq=n;
-            n.push=n;
-            n.loaded=!0;
-            n.version='2.0';
-            n.queue=[];
-            t=b.createElement(e);
-            t.async=!0;
-            t.src=v;
-            s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)
-        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s) {
+      if(f.fbq) return;
+      n=f.fbq=function(){n.callMethod ?
+      n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+      if(!f._fbq) f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-        fbq('init', '1196008671864934'); // Asegúrate de que este ID de píxel sea el correcto
-        fbq('track', 'PageView');  // Evento PageView cuando la página se carga
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1196008671864934&ev=PageView&noscript=1" />
-    </noscript>
-    <!-- End Meta Pixel Code -->
+    fbq('init', '1196008671864934');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1196008671864934&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
-    <div class="hero">
-        <div class="overlay">
-            <h1 class="animated-title">🔥 ¡Empieza a ganar ahora! 🔥</h1>
-            <p class="highlight">Carga mínima de <strong>$3000</strong></p>
-            <p>Únete y vive la mejor experiencia.</p>
-            <!-- Aquí se ha agregado el evento Lead en el enlace de WhatsApp -->
-            <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link"> 💬 Hablar por WhatsApp </a>
-        </div>
-    </div>
+  <div class="hero">
+    <h1>🔥 ¡REGÍSTRATE Y COMIENZA A GANAR! 🔥</h1>
+    <p>Carga mínima: <strong>$3000</strong></p>
+    <p>Retiros sin límite ✨ 2000+ tragamonedas</p>
+    <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
+  </div>
 
-    <script>
-        // Agregar un event listener para el evento 'Lead' al hacer clic en el enlace de WhatsApp
-        document.getElementById('whatsapp-link').addEventListener('click', function() {
-            fbq('track', 'Lead');  // Evento personalizado 'Lead' cuando se hace clic en el enlace
-        });
-    </script>
+  <!-- Monedas animadas cayendo -->
+  <img src="https://i.ibb.co/vsF9SWW/money1.png" class="money" style="left: 5%; animation-duration: 6s; animation-delay: 0s;" />
+  <img src="https://i.ibb.co/vsF9SWW/money1.png" class="money" style="left: 30%; animation-duration: 5.5s; animation-delay: 1s;" />
+  <img src="https://i.ibb.co/vsF9SWW/money1.png" class="money" style="left: 60%; animation-duration: 6.5s; animation-delay: 2s;" />
+  <img src="https://i.ibb.co/vsF9SWW/money1.png" class="money" style="left: 80%; animation-duration: 5s; animation-delay: 3s;" />
+
+  <!-- Perrito morado a la izquierda -->
+  <img src="https://linkdecontacto.vercel.app/perro-morado.png" alt="Perrito Ganamos" style="position: absolute; bottom: 0; left: 0; width: 250px;" />
+
+  <script>
+    document.getElementById('whatsapp-link').addEventListener('click', function() {
+      fbq('track', 'Lead');
+    });
+  </script>
 </body>
 </html>
-
