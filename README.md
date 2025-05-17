@@ -18,3 +18,4 @@ Este proyecto incluye el píxel de Meta con `event_source_url: window.location.h
 
 ## Contacto
 Si tienes dudas o necesitas soporte, contáctanos a través de WhatsApp en [3518761399](https://wa.me/3518761399).
+# Redeploy automático forzado
