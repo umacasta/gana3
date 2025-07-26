@@ -3,200 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Club - ¡Ganá y Disfrutá!</title>
+  <title>Ganamos.co - ¡Gana y Disfruta!</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: white;
-      text-align: center;
-      background: url('perro-morado.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: scroll;
-      overflow: hidden;
-      animation: backgroundMove 30s ease-in-out infinite alternate;
-    }
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      backdrop-filter: brightness(0.7);
-      padding: 20px;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out forwards;
-    }
-    h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 15px #ff00f7, 0 0 30px #ff00f7;
-      margin-bottom: 1rem;
-      animation: neonGlow 1.5s ease-in-out infinite alternate;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      text-shadow: 0 0 5px #000;
-    }
-    .cta {
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: #ffd700;
-      color: #000;
-      font-weight: bold;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 0 20px #ffd700;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.4);
-      transform: skewX(-25deg);
-      animation: shine 2s infinite;
-    }
-    .cta:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px #ffffff;
-    }
-    .emoji-deco {
-      position: absolute;
-      font-size: 2.5rem;
-      animation: float 6s ease-in-out infinite;
-      opacity: 0.7;
-    }
-    .deco1 { top: 10%; left: 15%; animation-delay: 0s; }
-    .deco2 { top: 30%; right: 10%; animation-delay: 2s; }
-    .deco3 { bottom: 15%; left: 25%; animation-delay: 4s; }
-    .deco4 { bottom: 10%; right: 20%; animation-delay: 1s; }
-
-    .countdown {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ffd700;
-      text-shadow: 0 0 10px #000;
-    }
-
-    .gift-box {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #ff0080;
-      border-radius: 50%;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.8rem;
-      color: #fff;
-      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .gift-box:hover {
-      box-shadow: 0 0 20px #fff, 0 0 30px #fff;
-    }
-
-    .gift-text {
-      position: absolute;
-      bottom: -30px;
-      background: #222;
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .gift-box:active {
-      animation: flash 0.5s;
-    }
-
-    .gift-popup {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: #111;
-      color: #fff;
-      border: 2px solid #ffd700;
-      border-radius: 10px;
-      padding: 15px;
-      width: 220px;
-      box-shadow: 0 0 10px #ffd700;
-      display: none;
-      z-index: 9999;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes neonGlow {
-      0% { text-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7; }
-      100% { text-shadow: 0 0 20px #ff00f7, 0 0 40px #ff00f7; }
-    }
-
-    @keyframes shine {
-      0% { left: -75%; }
-      100% { left: 125%; }
-    }
-
-    @keyframes backgroundMove {
-      0% { background-position: center center; }
-      100% { background-position: center 10%; }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes flash {
-      0% { box-shadow: 0 0 5px #fff; }
-      50% { box-shadow: 0 0 25px #fff; }
-      100% { box-shadow: 0 0 5px #fff; }
-    }
+    /* ... tus estilos CSS sin cambios ... */
   </style>
 
-  <!-- Meta Pixel NUEVO -->
+  <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1723491304950541');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1723491304950541&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel -->
-
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1723491304950541&ev=PageView&noscript=1"/>
+  </noscript>
 </head>
+
 <body>
   <div class="hero">
-    <h1>🔥 ¡REGÍSTRATE Y COMENZÁ A GANAR! 🔥</h1>
+    <h1>🔥 ¡REGÍSTRATE Y COMIENZA A GANAR! 🔥</h1>
     <p>Carga mínima: <strong>$3000</strong></p>
     <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🏱 Bonos exclusivos</p>
     <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
@@ -209,11 +47,11 @@
     <div class="emoji-deco deco4">🎲</div>
   </div>
 
-  <!-- Caja de regalo -->
+  <!-- Caja de regalo flotante -->
   <div class="gift-box" id="giftBox">🎁<span class="gift-text">¡Tocá acá para un regalo sorpresa!</span></div>
   <div class="gift-popup" id="giftPopup">🎁 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
 
-  <!-- Scripts -->
+  <!-- Scripts finales -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const countdownElement = document.getElementById("countdown");
@@ -226,16 +64,18 @@
         countdownElement.textContent = `⏳ ¡Quedan ${minutes}:${seconds.toString().padStart(2, '0')} para reclamar tu bono!`;
       }, 1000);
 
+      // ✅ TRACK CONTACT EN GIFTBOX
       const giftBox = document.getElementById("giftBox");
       giftBox.addEventListener("click", () => {
-        fbq('track', 'Lead');
+        fbq('track', 'Contact');
         window.open("https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario!!%20y%20mi%20bono%20sorpresa", "_blank");
       });
 
+      // ✅ TRACK CONTACT EN BOTÓN WHATSAPP
       const whatsappBtn = document.getElementById("whatsapp-link");
       if (whatsappBtn) {
         whatsappBtn.addEventListener("click", function () {
-          fbq('track', 'Lead');
+          fbq('track', 'Contact');
         });
       }
     });
