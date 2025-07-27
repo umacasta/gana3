@@ -4,26 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ganamos.co - ¡Gana y Disfruta!</title>
-
-  <!-- Meta Pixel Code CORRECTO -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1763727594255664');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1763727594255664&ev=PageView&noscript=1" />
-  </noscript>
-  <!-- End Meta Pixel Code -->
-
   <style>
     body {
       margin: 0;
@@ -142,10 +122,6 @@
       white-space: nowrap;
     }
 
-    .gift-box:active {
-      animation: flash 0.5s;
-    }
-
     .gift-popup {
       position: fixed;
       bottom: 90px;
@@ -165,37 +141,42 @@
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
     }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
+    @keyframes fadeIn { to { opacity: 1; } }
     @keyframes neonGlow {
       0% { text-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7; }
       100% { text-shadow: 0 0 20px #ff00f7, 0 0 40px #ff00f7; }
     }
-
     @keyframes shine {
       0% { left: -75%; }
       100% { left: 125%; }
     }
-
     @keyframes backgroundMove {
       0% { background-position: center center; }
       100% { background-position: center 10%; }
     }
-
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-
-    @keyframes flash {
-      0% { box-shadow: 0 0 5px #fff; }
-      50% { box-shadow: 0 0 25px #fff; }
-      100% { box-shadow: 0 0 5px #fff; }
-    }
   </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1763727594255664');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1763727594255664&ev=PageView&noscript=1"/>
+  </noscript>
 </head>
 
 <body>
@@ -205,39 +186,43 @@
     <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🍱 Bonos exclusivos</p>
     <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
     <div class="countdown" id="countdown">⏳ ¡Quedan 15:00 para reclamar tu bono!</div>
+
+    <!-- Emojis decorativos -->
     <div class="emoji-deco deco1">🎰</div>
     <div class="emoji-deco deco2">💎</div>
     <div class="emoji-deco deco3">🃏</div>
     <div class="emoji-deco deco4">🎲</div>
   </div>
 
+  <!-- Caja de regalo -->
   <div class="gift-box" id="giftBox">🏱<span class="gift-text">¡Tocá acá para un regalo sorpresa!</span></div>
   <div class="gift-popup" id="giftPopup">🏱 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
 
+  <!-- Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const countdownElement = document.getElementById("countdown");
       let timeLeft = 15 * 60;
+      const countdown = document.getElementById("countdown");
       setInterval(() => {
         if (timeLeft <= 0) return;
         timeLeft--;
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        countdownElement.textContent = `⏳ ¡Quedan ${minutes}:${seconds.toString().padStart(2, '0')} para reclamar tu bono!`;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        countdown.textContent = `⏳ ¡Quedan ${min}:${sec.toString().padStart(2, '0')} para reclamar tu bono!`;
       }, 1000);
 
       const giftBox = document.getElementById("giftBox");
       giftBox.addEventListener("click", () => {
         fbq('track', 'Lead');
+        fbq('track', 'Contact');
         window.open("https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario!!%20y%20mi%20bono%20sorpresa", "_blank");
       });
 
       const whatsappBtn = document.getElementById("whatsapp-link");
-      if (whatsappBtn) {
-        whatsappBtn.addEventListener("click", function () {
-          fbq('track', 'Lead');
-        });
-      }
+      whatsappBtn.addEventListener("click", function () {
+        fbq('track', 'Lead');
+        fbq('track', 'Contact');
+      });
     });
   </script>
 </body>
