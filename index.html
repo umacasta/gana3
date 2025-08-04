@@ -27,8 +27,9 @@
       font-family: 'Arial', sans-serif;
       color: white;
       text-align: center;
-      background: url('https://i.ibb.co/pzHZ5B3/perro-morado.png') no-repeat center center;
+      background: url('https://gana3-7f5l.vercel.app/perro-morado.png') no-repeat center center;
       background-size: cover;
+      background-attachment: scroll;
       overflow: hidden;
     }
 
@@ -109,7 +110,6 @@
   <div class="notif" id="notiBox">🎁 Juan ganó $15.000 hace un minuto</div>
 
   <script>
-    // Contador de usuarios activos aleatorio
     function actualizarUsuarios() {
       const count = Math.floor(Math.random() * (37 - 24 + 1)) + 24;
       document.getElementById("userCount").textContent = "Usuarios activos ahora: " + count;
@@ -117,7 +117,6 @@
     setInterval(actualizarUsuarios, 7000);
     actualizarUsuarios();
 
-    // Notificaciones rotativas
     const notificaciones = [
       "🎁 Marcos recibió un bono de $10.000",
       "🎉 Laura duplicó su recarga",
