@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red Club</title>
-  <!-- Pixel Meta -->
+  <title>Red Club - Promoción Exclusiva</title>
+
+  <!-- PIXEL META -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,124 +13,93 @@
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '747470498138166');
     fbq('track', 'PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
-  </noscript>
+
+  <!-- CONVERSIONS API SIMPLIFICADA -->
+  <script>
+    fetch('https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1', {
+      method: 'GET',
+      mode: 'no-cors'
+    });
+  </script>
+
   <style>
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
+      background: url('https://i.ibb.co/7X8LmjT/perro-morado.png') no-repeat center center;
+      background-size: cover;
       color: white;
       text-align: center;
-      background: url('https://gana3-7f5l.vercel.app/perro-morado.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: scroll;
-      overflow: hidden;
-    }
-
-    .container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: brightness(1.1);
     }
 
     h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px black;
+      margin-top: 60px;
+      font-size: 3em;
+      text-shadow: 2px 2px 8px #000;
     }
 
     p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 2px black;
+      font-size: 1.2em;
+      margin: 15px 0;
     }
 
     .btn {
-      background-color: #ffb347;
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: #fbbc04;
       color: black;
-      padding: 15px 40px;
       border: none;
-      border-radius: 50px;
-      font-size: 1.1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
       font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
     .contador {
       margin-top: 15px;
-      font-size: 0.95rem;
-      color: #eee;
+      font-size: 0.95em;
+      color: #ccc;
     }
 
     .notif {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-size: 0.9rem;
+      bottom: 15px;
+      left: 15px;
+      background-color: #222;
       color: white;
-      animation: fadeInOut 5s ease-in-out infinite;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      animation: aparecer 1s ease forwards;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      10% { opacity: 1; transform: translateY(0); }
-      90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-20px); }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
-    <p>Promoción exclusiva por tiempo limitado</p>
-    <a href="https://wa.me/5493518761399" class="btn" onclick="fbq('track', 'Contact')">
-      💬 Hablar por WSP
-    </a>
-    <div class="contador" id="userCount">Usuarios activos ahora: 28</div>
-  </div>
+  <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
+  <p>Promoción exclusiva por tiempo limitado</p>
+  <a href="https://wa.me/5493518761399?text=Hola%2C%20quiero%20aprovechar%20la%20promo%20de%20duplicar%20mi%20carga" class="btn" onclick="fbq('track', 'Contactar');">💬 Hablar por WSP</a>
+  <div class="contador" id="contadorUsuarios">Usuarios activos ahora: 0</div>
+  <div class="notif">🎁 Marcos recibió un bono de $10.000</div>
 
-  <div class="notif" id="notiBox">🎁 Juan ganó $15.000 hace un minuto</div>
-
+  <!-- Simulación de usuarios activos -->
   <script>
-    function actualizarUsuarios() {
-      const count = Math.floor(Math.random() * (37 - 24 + 1)) + 24;
-      document.getElementById("userCount").textContent = "Usuarios activos ahora: " + count;
-    }
-    setInterval(actualizarUsuarios, 7000);
-    actualizarUsuarios();
-
-    const notificaciones = [
-      "🎁 Marcos recibió un bono de $10.000",
-      "🎉 Laura duplicó su recarga",
-      "🔥 Ana ganó una tirada gratis",
-      "🏆 Gonzalo retiró $25.000",
-      "🎁 Juan ganó $15.000 hace un minuto"
-    ];
-    let notiBox = document.getElementById("notiBox");
-    let i = 0;
-    setInterval(() => {
-      notiBox.textContent = notificaciones[i];
-      i = (i + 1) % notificaciones.length;
-    }, 5000);
+    const contador = document.getElementById('contadorUsuarios');
+    const randomUsuarios = Math.floor(Math.random() * 20) + 17;
+    contador.textContent = "Usuarios activos ahora: " + randomUsuarios;
   </script>
 </body>
 </html>
