@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         ...req.body,
         event_source_url: eventSourceUrl,
-        access_token: 'EAAGmUJu5ZC8sBAOjXZA7OCTZAXZCZBZBGvvvRKEMnZA8dCtcPHZBDZC8Jdaz5vmhPH3ihGZC2HghN4ZA6cZCbVoIJvWwJbkUj9mnkKNyK1l6H7D9EK6HdYRYtE7Y8j3wHcwhT3gAfzGhKak68uK1ZBsyZAZAZAFNiGGHJNVZCuNRRWWUTSCFZCZB8hJXT3Qkpq3At5XQoZB0AoZD'
+        access_token: process.env.CAPI_TOKEN,
       }),
     });
 
