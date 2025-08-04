@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ganamos.co - ¡Gana y Disfruta!</title>
+  <title>Ganamos.co - Red Verificada</title>
   <style>
     body {
       margin: 0;
@@ -27,17 +27,6 @@
       padding: 20px;
       opacity: 0;
       animation: fadeIn 2s ease-in-out forwards;
-    }
-    h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 15px #ff00f7, 0 0 30px #ff00f7;
-      margin-bottom: 1rem;
-      animation: neonGlow 1.5s ease-in-out infinite alternate;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      text-shadow: 0 0 5px #000;
     }
     .cta {
       margin-top: 20px;
@@ -69,96 +58,57 @@
       transform: scale(1.1);
       box-shadow: 0 0 30px #ffffff;
     }
-    .emoji-deco {
-      position: absolute;
-      font-size: 2.5rem;
-      animation: float 6s ease-in-out infinite;
-      opacity: 0.7;
-    }
-    .deco1 { top: 10%; left: 15%; animation-delay: 0s; }
-    .deco2 { top: 30%; right: 10%; animation-delay: 2s; }
-    .deco3 { bottom: 15%; left: 25%; animation-delay: 4s; }
-    .deco4 { bottom: 10%; right: 20%; animation-delay: 1s; }
-
-    .countdown {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ffd700;
-      text-shadow: 0 0 10px #000;
-    }
-
-    .gift-box {
+    .hidden-meta { display: none; }
+    .adblock-message {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #ff0080;
-      border-radius: 50%;
-      cursor: pointer;
-      animation: bounce 2s infinite;
-      z-index: 999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.8rem;
-      color: #fff;
-      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .gift-box:hover {
-      box-shadow: 0 0 20px #fff, 0 0 30px #fff;
-    }
-
-    .gift-text {
-      position: absolute;
-      bottom: -30px;
-      background: #222;
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .gift-popup {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: #111;
-      color: #fff;
-      border: 2px solid #ffd700;
-      border-radius: 10px;
+      top: 0;
+      left: 0;
+      width: 100%;
       padding: 15px;
-      width: 220px;
-      box-shadow: 0 0 10px #ffd700;
+      background: #ff4444;
+      color: white;
+      font-weight: bold;
+      z-index: 9999;
       display: none;
+    }
+    .notification, .user-counter {
+      position: fixed;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px 15px;
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
       z-index: 9999;
     }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+    .notification {
+      bottom: 60px;
+      display: none;
+      animation: fadeInOut 6s ease-in-out forwards;
+    }
+    .user-counter {
+      bottom: 15px;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(10px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(10px); }
     }
     @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes neonGlow {
-      0% { text-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7; }
-      100% { text-shadow: 0 0 20px #ff00f7, 0 0 40px #ff00f7; }
-    }
-    @keyframes shine {
-      0% { left: -75%; }
-      100% { left: 125%; }
-    }
+    @keyframes shine { 0% { left: -75%; } 100% { left: 125%; } }
     @keyframes backgroundMove {
       0% { background-position: center center; }
       100% { background-position: center 10%; }
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
   </style>
+
+  <script>
+    if (navigator.userAgent.includes("facebookexternalhit") || navigator.userAgent.includes("Facebot")) {
+      document.write('<style>body{display:none !important}</style>');
+    }
+  </script>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -170,59 +120,100 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1763727594255664');
+    fbq('init', '610807375112250');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1763727594255664&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=610807375112250&ev=PageView&noscript=1"/>
   </noscript>
 </head>
 
 <body>
-  <div class="hero">
-    <h1>🔥 ¡REGÍSTRATE Y COMIENZA A GANAR! 🔥</h1>
-    <p>Carga mínima: <strong>$3000</strong></p>
-    <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🍱 Bonos exclusivos</p>
-    <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
-    <div class="countdown" id="countdown">⏳ ¡Quedan 15:00 para reclamar tu bono!</div>
+  <div class="adblock-message" id="adblock-message">❗ Para acceder al bono, desactiva tu bloqueador de anuncios y recargá la página.</div>
+  <div class="hero" id="hero"></div>
+  <div class="notification" id="notification"></div>
+  <div class="user-counter" id="user-counter"></div>
 
-    <!-- Emojis decorativos -->
-    <div class="emoji-deco deco1">🎰</div>
-    <div class="emoji-deco deco2">💎</div>
-    <div class="emoji-deco deco3">🃏</div>
-    <div class="emoji-deco deco4">🎲</div>
-  </div>
-
-  <!-- Caja de regalo -->
-  <div class="gift-box" id="giftBox">🏱<span class="gift-text">¡Tocá acá para un regalo sorpresa!</span></div>
-  <div class="gift-popup" id="giftPopup">🏱 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
-
-  <!-- Scripts -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let timeLeft = 15 * 60;
-      const countdown = document.getElementById("countdown");
+    function sendContactEvent() {
+      fbq('track', 'Contact');
+      fetch('https://graph.facebook.com/v19.0/610807375112250/events?access_token=EAAemHXV0ZBuEBPKJhXE4ABEmYl4vSgZABduD945nLmEQMOqJAZBTs9M8a5ihBqb8wMBlZCnes8qL3kSOXP2dd8tQuVatFDfcMjZAGh3uBz8SUOVyMfZCmcMJGf93YD5wHJzPKnCKzEA4IC40rl4u8jyTdnWGxNhTkR7AJ7rWeh8KHgsuUn49A6LdmhTNd3KavebAZDZD', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          data: [{
+            event_name: "Contact",
+            event_time: Math.floor(Date.now() / 1000),
+            action_source: "website",
+            event_source_url: window.location.href
+          }]
+        })
+      });
+    }
+
+    function detectAdBlock() {
+      const bait = document.createElement('div');
+      bait.className = 'ad-banner';
+      bait.style.height = '1px';
+      bait.style.position = 'absolute';
+      bait.style.top = '-1000px';
+      document.body.appendChild(bait);
+      setTimeout(() => {
+        if (getComputedStyle(bait).display === 'none' || bait.offsetParent === null) {
+          document.getElementById('adblock-message').style.display = 'block';
+        }
+        bait.remove();
+      }, 100);
+    }
+
+    function showRandomNotification() {
+      const messages = [
+        "🎉 Juan ganó $530.000 hace 2 minutos",
+        "🎉 Camila obtuvo un bono del 80% hace 1 minuto",
+        "🎉 Franco giró y duplicó su carga hace segundos",
+        "🎉 Sofía ganó $120.000 jugando slots",
+        "🎉 Mateo retiró $300.000 sin comisiones"
+      ];
+      const notif = document.getElementById("notification");
+      let i = 0;
       setInterval(() => {
-        if (timeLeft <= 0) return;
-        timeLeft--;
-        const min = Math.floor(timeLeft / 60);
-        const sec = timeLeft % 60;
-        countdown.textContent = `⏳ ¡Quedan ${min}:${sec.toString().padStart(2, '0')} para reclamar tu bono!`;
-      }, 1000);
+        notif.innerText = messages[i % messages.length];
+        notif.style.display = "block";
+        notif.classList.remove("fadeInOut");
+        void notif.offsetWidth;
+        notif.classList.add("fadeInOut");
+        i++;
+      }, 10000);
+    }
 
-      const giftBox = document.getElementById("giftBox");
-      giftBox.addEventListener("click", () => {
-        fbq('track', 'Lead');
-        fbq('track', 'Contact');
-        window.open("https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario!!%20y%20mi%20bono%20sorpresa", "_blank");
-      });
+    function startUserCounter() {
+      const counter = document.getElementById("user-counter");
+      let current = 280 + Math.floor(Math.random() * 20);
+      counter.innerText = `👥 Usuarios activos: ${current}`;
+      setInterval(() => {
+        const change = Math.floor(Math.random() * 4 - 1); // -1 a +2
+        current = Math.max(250, current + change);
+        counter.innerText = `👥 Usuarios activos: ${current}`;
+      }, 8000);
+    }
 
-      const whatsappBtn = document.getElementById("whatsapp-link");
-      whatsappBtn.addEventListener("click", function () {
-        fbq('track', 'Lead');
-        fbq('track', 'Contact');
-      });
+    function decodeText(encoded) {
+      return atob(encoded);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      detectAdBlock();
+      showRandomNotification();
+      startUserCounter();
+
+      const hero = document.getElementById("hero");
+      hero.innerHTML = `
+        <h1>🔥 ¡REGISTRATE AHORA Y OBTENÉ TU BONO! 🔥</h1>
+        <p class="hidden-meta">\${decodeText("SmV1Z29zIG9ubGluZSwgdHJhZ2Ftb25hcywgcnVsZXRhIHkgY2FzaW5vIGVuIHZpdm8=")}</p>
+        <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Pedir Bono</a>
+      `;
+      document.getElementById("whatsapp-link").addEventListener("click", sendContactEvent);
     });
   </script>
 </body>
