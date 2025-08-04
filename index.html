@@ -3,9 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red Club - Promoción Exclusiva</title>
-
-  <!-- PIXEL META -->
+  <title>Red Club | Verificado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('https://i.ibb.co/6ZNZpYb/fondo-casino.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero a {
+      padding: 1rem 2rem;
+      background-color: #25d366;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .counter {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+    .popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 10px;
+      animation: fadein 0.5s, fadeout 0.5s 4.5s;
+      color: #0f0;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeout {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  </style>
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -13,93 +67,39 @@
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '747470498138166');
     fbq('track', 'PageView');
   </script>
-
-  <!-- CONVERSIONS API SIMPLIFICADA -->
-  <script>
-    fetch('https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1', {
-      method: 'GET',
-      mode: 'no-cors'
-    });
-  </script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://i.ibb.co/7X8LmjT/perro-morado.png') no-repeat center center;
-      background-size: cover;
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 60px;
-      font-size: 3em;
-      text-shadow: 2px 2px 8px #000;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin: 15px 0;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background-color: #fbbc04;
-      color: black;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1.2em;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    .contador {
-      margin-top: 15px;
-      font-size: 0.95em;
-      color: #ccc;
-    }
-
-    .notif {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      background-color: #222;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 0.9em;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      animation: aparecer 1s ease forwards;
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
+  </noscript>
 </head>
-
 <body>
-  <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
-  <p>Promoción exclusiva por tiempo limitado</p>
-  <a href="https://wa.me/5493518761399?text=Hola%2C%20quiero%20aprovechar%20la%20promo%20de%20duplicar%20mi%20carga" class="btn" onclick="fbq('track', 'Contactar');">💬 Hablar por WSP</a>
-  <div class="contador" id="contadorUsuarios">Usuarios activos ahora: 0</div>
-  <div class="notif">🎁 Marcos recibió un bono de $10.000</div>
+  <div class="hero">
+    <h1>Bienvenido a Red Club</h1>
+    <div class="counter">Usuarios activos: <span id="userCount">612</span></div>
+    <a href="https://wa.me/5493518761399?text=Hola,%20quiero%20crear%20un%20usuario" onclick="fbq('track', 'Contact');">💬 Hablar por WSP</a>
+  </div>
 
-  <!-- Simulación de usuarios activos -->
   <script>
-    const contador = document.getElementById('contadorUsuarios');
-    const randomUsuarios = Math.floor(Math.random() * 20) + 17;
-    contador.textContent = "Usuarios activos ahora: " + randomUsuarios;
+    const mensajes = [
+      "💰 Juan ganó $10.000",
+      "🎉 Lucía se llevó 5.000 fichas",
+      "🏆 Tomás duplicó su carga",
+      "💸 Sofía recibió un bono especial",
+      "🤑 Federico activó una promo exclusiva"
+    ];
+    function lanzarPopup() {
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      popup.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+      document.body.appendChild(popup);
+      setTimeout(() => popup.remove(), 5000);
+    }
+    setInterval(lanzarPopup, 15000);
   </script>
 </body>
 </html>
