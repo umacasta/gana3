@@ -211,8 +211,15 @@
         countdown.textContent = `⏳ ¡Quedan ${min}:${sec.toString().padStart(2, '0')} para reclamar tu bono!`;
       }, 1000);
 
+      function generateEventId() {
+        return 'evt_' + Math.random().toString(36).substr(2, 9) + Date.now();
+      }
+
       function sendContactEvent() {
-        fbq('track', 'Contact');
+        const eventId = generateEventId();
+
+        fbq('track', 'Contact', {}, { eventID: eventId });
+
         fetch('https://graph.facebook.com/v18.0/747470498138166/events', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -221,7 +228,8 @@
               event_name: 'Contact',
               event_time: Math.floor(Date.now() / 1000),
               event_source_url: window.location.href,
-              action_source: 'website'
+              action_source: 'website',
+              event_id: eventId
             }],
             access_token: 'EAAemHXV0ZBuEBPIueZCJzFPFebM1C2bTTFrrLUtcTIIU1W5nJQlfJ6JSikhVMHQdCc9cxqAdZAJkjvyNGdNl95MJn18x0ACAQX9I9z2EIYmPIVn1rxyyBgZCRwQ7jczOQuHNilANBh184D7SLkCtXTzMmJPdqgkAekNNSCYBiZAy8ckuTPbBt6mMOAIDyLVFECwZDZD'
           })
