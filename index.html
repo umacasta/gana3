@@ -217,16 +217,25 @@
       const hero = document.getElementById("hero");
       hero.innerHTML = `
         <h1>🔥 ¡Bienvenido a Red Club! 🔥</h1>
-        <p class="hidden-meta">\${decodeText("UmVkIFZlcmlmaWNhZGEgZGUgamV1Z29zLCB0cmFnYW1vbmFzIHkgYm9ub3M=")}</p>
         <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Pedir Bono</a>
-        <div class="info-extra">
-          <p>\${decodeText("8J+RiAAgUmVkIENsdWIgZXMgYSBwbGF0YWZvcm1hIGRlIGVudHJldGVuaW1pZW50byBvbmxpbmUgY29uIGJlbmVmaWNpb3MgZXhjbHVzaXZvcyBwYXJhIHVzdWFyaW9zIHJlZ2lzdHJhZG9zLg==")}</p>
-          <p>\${decodeText("8J+SlAAgQm9uaWZpY2FjaW9uZXMgZGlhcmlhcywgc29wb3J0ZSBwZXJzb25hbGl6YWRvIHkgcHJvbW9jaW9uZXMgc29ycHJlc2EgYWwgam91cm5vLg==")}</p>
-          <p>\${decodeText("8J+TjwAgIVJlZ2lzdHJhdGUgaG95IHkgYWNjZWRlIMOpIG9mZXJ0YXMgcXVlIG5vIHZhIGEgZW5jb250cmFyIGVuIG90cm8gc2l0aW8h")}</p>
-          <p>\${decodeText("8J+UlwAgQ29uZmlhZG8gcG9yIG1hcyBkZSAyMC4wMDAgdXN1YXJpb3MgaW4gYXJnZW50aW5hLg==")}</p>
-          <p>\${decodeText("8J+UugAgRGlzcG9uaWJsZSB2YXMgYWx0b3MgY29uIGF0ZW5jaW9uIGxhcyAyNCBob3JhcyBwb3IgV2hhdHNBcHANCg==")}</p>
-        </div>
       `;
+
+      const infoContainer = document.createElement('div');
+      infoContainer.className = 'info-extra';
+      const lines = [
+        "8J+RiAAgUmVkIENsdWIgZXMgYSBwbGF0YWZvcm1hIGRlIGVudHJldGVuaW1pZW50byBvbmxpbmUgY29uIGJlbmVmaWNpb3MgZXhjbHVzaXZvcyBwYXJhIHVzdWFyaW9zIHJlZ2lzdHJhZG9zLg==",
+        "8J+SlAAgQm9uaWZpY2FjaW9uZXMgZGlhcmlhcywgc29wb3J0ZSBwZXJzb25hbGl6YWRvIHkgcHJvbW9jaW9uZXMgc29ycHJlc2EgYWwgam91cm5vLg==",
+        "8J+TjwAgIVJlZ2lzdHJhdGUgaG95IHkgYWNjZWRhIMOpIG9mZXJ0YXMgcXVlIG5vIHZhIGEgZW5jb250cmFyIGVuIG90cm8gc2l0aW8h",
+        "8J+UlwAgQ29uZmlhZG8gcG9yIG1hcyBkZSAyMC4wMDAgdXN1YXJpb3MgaW4gYXJnZW50aW5hLg==",
+        "8J+UugAgRGlzcG9uaWJsZSB2YXMgYWx0b3MgY29uIGF0ZW5jaW9uIGxhcyAyNCBob3JhcyBwb3IgV2hhdHNBcA=="
+      ];
+      lines.forEach(line => {
+        const p = document.createElement('p');
+        p.textContent = decodeText(line);
+        infoContainer.appendChild(p);
+      });
+      hero.appendChild(infoContainer);
+
       document.getElementById("whatsapp-link").addEventListener("click", sendContactEvent);
     });
   </script>
