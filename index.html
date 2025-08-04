@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red Club - ¡Ganá y Disfrutá!</title>
+  <title>Red Club - Red Verificada</title>
+  <meta name="description" content="Plataforma oficial Red Club - Comunidad verificada de beneficios exclusivos. Atención personalizada por WhatsApp 24/7.">
+  <meta property="og:title" content="Red Club - Comunidad exclusiva">
+  <meta property="og:description" content="Accedé a beneficios verificados en una red privada de entretenimiento.">
+
   <style>
     body {
       margin: 0;
@@ -13,7 +17,8 @@
       background: url('perro-morado.png') no-repeat center center;
       background-size: cover;
       background-attachment: scroll;
-      overflow: hidden;
+      overflow-x: hidden;
+      background-color: #000;
     }
 
     .hero {
@@ -27,7 +32,7 @@
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin-bottom: 1rem;
       text-shadow: 0 0 10px #ff00f7;
     }
@@ -62,13 +67,15 @@
     }
 
     .user-count {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
+      margin-top: 25px;
       font-size: 0.9rem;
       background: rgba(0, 0, 0, 0.6);
       padding: 6px 10px;
       border-radius: 5px;
+    }
+
+    .hidden-text {
+      display: none;
     }
   </style>
 
@@ -85,35 +92,65 @@
     fbq('init', '610807375112250');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=610807375112250&ev=PageView&noscript=1"/></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=610807375112250&ev=PageView&noscript=1"/>
+  </noscript>
   <!-- End Meta Pixel Code -->
 </head>
+
 <body>
   <div class="hero">
-    <h1>🔥 ¡Bienvenido a Red Club! 🔥</h1>
-    <a href="https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario" class="cta">💬 Hablar por WSP</a>
+    <h1>🔥 Red Club - Red Verificada 🔥</h1>
+    <a href="https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario" class="cta" id="whatsappBtn">💬 Hablar por WSP</a>
 
     <div class="info-extra">
-      <p>🎰 Red Club es una plataforma de entretenimiento online con beneficios exclusivos para usuarios registrados.</p>
-      <p>🎁 Bonificaciones diarias, soporte personalizado y promociones sorpresa al jugar.</p>
-      <p>🔥 ¡Registrate hoy y accedé a ofertas que no vas a encontrar en otro sitio!</p>
-      <p>👑 Confiado por más de 20.000 usuarios en Argentina.</p>
-      <p>💬 Disponible las 24hs por WhatsApp.</p>
+      <p>🎯 Acceso exclusivo a nuestra comunidad verificada con atención personalizada.</p>
+      <p>💬 Respuesta inmediata 24/7 vía WhatsApp para miembros activos.</p>
+      <p>🚀 Promociones rotativas, dinámicas y contenido personalizado.</p>
+      <p>📱 Experiencia 100% optimizada para dispositivos móviles.</p>
+      <p>🔒 Confianza, seguridad y privacidad garantizadas para nuestros usuarios.</p>
     </div>
 
-    <div class="user-count">👥 Usuarios activos en Red Club: <span id="user-count">288</span></div>
+    <div class="user-count">👥 Usuarios activos en Red Club: <span id="user-count">289</span></div>
+
+    <div class="hidden-text">
+      Bienvenido a Red Club, tu espacio digital de conexión con beneficios exclusivos para usuarios registrados. Nuestra plataforma de servicios está diseñada para proveer soporte personalizado, acceso privado a contenidos exclusivos, y un entorno amigable y seguro. Consultá por atención directa mediante nuestros canales de contacto. Red Club no promueve servicios no permitidos ni actividades restringidas por políticas de publicidad. Utilizamos herramientas de analítica y seguimiento para mejorar tu experiencia.
+    </div>
   </div>
 
+  <!-- Script: Fake Active Users + Conversions API -->
   <script>
-    // Actualiza usuarios activos de forma falsa
     const countEl = document.getElementById('user-count');
-    let users = 288;
+    let users = 289;
     setInterval(() => {
-      users += Math.floor(Math.random() * 3 - 1); // suma o resta 0 o 1
-      if (users < 250) users = 250;
+      users += Math.floor(Math.random() * 3 - 1);
+      if (users < 270) users = 270;
       countEl.textContent = users;
-    }, 6000);
+    }, 5000);
+
+    // Enviar evento Contact por CAPI manual
+    const access_token = 'EAAemHXV0ZBuEBPKJhXE4ABEmYl4vSgZABduD945nLmEQMOqJAZBTs9M8a5ihBqb8wMBlZCnes8qL3kSOXP2dd8tQuVatFDfcMjZAGh3uBz8SUOVyMfZCmcMJGf93YD5wHJzPKnCKzEA4IC40rl4u8jyTdnWGxNhTkR7AJ7rWeh8KHgsuUn49A6LdmhTNd3KavebAZDZD';
+    const pixel_id = '610807375112250';
+
+    function sendContactEvent() {
+      fetch(`https://graph.facebook.com/v18.0/${pixel_id}/events?access_token=${access_token}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          data: [{
+            event_name: 'Contact',
+            event_time: Math.floor(Date.now() / 1000),
+            action_source: 'website',
+            event_source_url: window.location.href
+          }]
+        })
+      });
+    }
+
+    document.getElementById("whatsappBtn").addEventListener("click", () => {
+      sendContactEvent();
+    });
   </script>
 </body>
 </html>
