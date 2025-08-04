@@ -3,91 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ganamos.co - ¡Gana y Disfruta!</title>
+  <title>¡Duplicamos tu carga!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       color: white;
       text-align: center;
-      background: url('perro-morado.png') no-repeat center center;
+      background: url('perro-morado.png') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: scroll;
-      overflow: hidden;
-      animation: backgroundMove 30s ease-in-out infinite alternate;
     }
 
-    @keyframes backgroundMove {
-      0% { background-position: center top; }
-      100% { background-position: center bottom; }
+    h1 {
+      font-size: 3em;
+      margin-top: 2em;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem;
+    p {
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px #000;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    .button-container {
+      margin-top: 2em;
     }
 
     .btn {
-      background-color: #fcbf49;
-      color: black;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+      background-color: #fbb03b;
+      color: #1c1c1c;
       border: none;
+      padding: 1em 2em;
+      font-size: 1.1em;
       border-radius: 50px;
       cursor: pointer;
       text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      display: inline-block;
       transition: background-color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #f77f00;
+      background-color: #ffcc5c;
+    }
+
+    #counter {
+      margin-top: 1em;
+      font-size: 1em;
+      color: #f0f0f0;
+      text-shadow: 1px 1px 2px #000;
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
-    <p>Promoción exclusiva por tiempo limitado</p>
-    <a href="https://wa.me/5493518761399" class="btn" onclick="enviarEventoContact()">💬 Hablar por WSP</a>
+
+  <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
+  <p>Promoción exclusiva por tiempo limitado</p>
+
+  <div class="button-container">
+    <a href="https://wa.me/5493518761399" class="btn" onclick="fbq('track', 'Contact');">
+      💬 Hablar por WSP
+    </a>
+    <div id="counter">Usuarios activos ahora: <span id="usersOnline">...</span></div>
   </div>
 
+  <!-- Meta Pixel -->
   <script>
-    function enviarEventoContact() {
-      fetch("https://graph.facebook.com/v19.0/747470498138166/events?access_token=EAAemHXV0ZBuEBPPa6DpTkSbblv8TRZAaSQDAzSSuFHS6ZCSilx9ldZBYtLnD40HXHYhaa5HvGwihipmZAuDlBUPCMJppzmcO5zZAlOcaiLJWuX8VilTyIZAmmtOUPZCYawZCF7dlbrRZCs1Tt9BtQGGP2ZA8ImKizzh9RP7wyhWYVom6kByFKpC6rpR11mA2YXUnVQEJgZDZD", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          data: [{
-            event_name: "Contact",
-            event_time: Math.floor(Date.now() / 1000),
-            action_source: "website",
-            event_source_url: "https://gana3-7f5l.vercel.app/",
-            user_data: {
-              client_user_agent: navigator.userAgent
-            }
-          }]
-        })
-      })
-      .then(response => console.log("Evento Contact enviado vía CAPI"))
-      .catch(error => console.error("Error al enviar evento CAPI:", error));
-    }
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '747470498138166');
+    fbq('track', 'PageView');
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <!-- CAPI manual desde HTML -->
+  <script>
+    fetch("https://www.facebook.com/tr?id=747470498138166&ev=Contact&dl=" + encodeURIComponent(window.location.href) + "&rl=&if=false&ts=" + Date.now(), {
+      method: "GET",
+      mode: "no-cors"
+    });
+  </script>
+
+  <!-- Contador de usuarios simulados -->
+  <script>
+    function updateUsersOnline() {
+      const randomUsers = Math.floor(Math.random() * 10) + 15;
+      document.getElementById('usersOnline').innerText = randomUsers;
+    }
+    updateUsersOnline();
+    setInterval(updateUsersOnline, 10000);
+  </script>
+
 </body>
 </html>
