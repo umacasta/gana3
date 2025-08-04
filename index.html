@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ganamos.co - Red Verificada</title>
+  <title>Red Club - Red Verificada</title>
   <style>
     body {
       margin: 0;
@@ -184,17 +184,17 @@
         void notif.offsetWidth;
         notif.classList.add("fadeInOut");
         i++;
-      }, 10000);
+      }, 5000); // ahora saltan cada 5 segundos
     }
 
     function startUserCounter() {
       const counter = document.getElementById("user-counter");
       let current = 280 + Math.floor(Math.random() * 20);
-      counter.innerText = `👥 Usuarios activos: ${current}`;
+      counter.innerText = `👥 Usuarios activos en Red Club: ${current}`;
       setInterval(() => {
-        const change = Math.floor(Math.random() * 4 - 1); // -1 a +2
+        const change = Math.floor(Math.random() * 4 - 1);
         current = Math.max(250, current + change);
-        counter.innerText = `👥 Usuarios activos: ${current}`;
+        counter.innerText = `👥 Usuarios activos en Red Club: ${current}`;
       }, 8000);
     }
 
@@ -209,8 +209,8 @@
 
       const hero = document.getElementById("hero");
       hero.innerHTML = `
-        <h1>🔥 ¡REGISTRATE AHORA Y OBTENÉ TU BONO! 🔥</h1>
-        <p class="hidden-meta">\${decodeText("SmV1Z29zIG9ubGluZSwgdHJhZ2Ftb25hcywgcnVsZXRhIHkgY2FzaW5vIGVuIHZpdm8=")}</p>
+        <h1>🔥 ¡Bienvenido a Red Club! 🔥</h1>
+        <p class="hidden-meta">\${decodeText("UmVkIFZlcmlmaWNhZGEgZGUgamV1Z29zLCB0cmFnYW1vbmFzIHkgYm9ub3M=")}</p>
         <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Pedir Bono</a>
       `;
       document.getElementById("whatsapp-link").addEventListener("click", sendContactEvent);
