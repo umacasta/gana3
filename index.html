@@ -1,168 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Red Club - Red Verificada</title>
-  <meta name="description" content="Plataforma oficial Red Club - Comunidad verificada de beneficios exclusivos. Atención personalizada por WhatsApp 24/7.">
-  <meta property="og:title" content="Red Club - Comunidad exclusiva">
-  <meta property="og:description" content="Accedé a beneficios verificados en una red privada de entretenimiento.">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: white;
-      text-align: center;
-      background: url('perro-morado.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: scroll;
-      overflow-x: hidden;
-      background-color: #000;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px #ff00f7;
-    }
-
-    .cta {
-      margin-top: 15px;
-      padding: 15px 30px;
-      background: #ffd700;
-      color: #000;
-      font-weight: bold;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      box-shadow: 0 0 20px #ffd700;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .cta:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px #ffffff;
-    }
-
-    .info-extra {
-      max-width: 800px;
-      margin: 30px auto 0;
-      padding: 20px;
-      color: #f0f0f0;
-      font-size: 1rem;
-      text-align: center;
-      text-shadow: 0 0 5px #000;
-      line-height: 1.6;
-    }
-
-    .user-count {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 6px 10px;
-      border-radius: 5px;
-    }
-
-    .hidden-text {
-      display: none;
-    }
-  </style>
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '610807375112250');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=610807375112250&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-</head>
-
-<body>
-  <div class="hero">
-    <h1>🔥 Red Club - Red Verificada 🔥</h1>
-    <a href="https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario" class="cta" id="whatsappBtn">💬 Hablar por WSP</a>
-
-    <div class="info-extra">
-      <p>🎯 Acceso exclusivo a nuestra comunidad verificada con atención personalizada.</p>
-      <p>💬 Respuesta inmediata 24/7 vía WhatsApp para miembros activos.</p>
-      <p>🚀 Promociones rotativas, dinámicas y contenido personalizado.</p>
-      <p>📱 Experiencia 100% optimizada para dispositivos móviles.</p>
-      <p>🔒 Confianza, seguridad y privacidad garantizadas para nuestros usuarios.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Club - Red Verificada</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        color: white;
+        text-align: center;
+        background: url('perro-morado.png') no-repeat center center;
+        background-size: cover;
+        background-attachment: scroll;
+        overflow: hidden;
+        animation: backgroundMove 30s ease-in-out infinite alternate;
+      }
+      @keyframes backgroundMove {
+        0% {
+          background-position: center top;
+        }
+        100% {
+          background-position: center bottom;
+        }
+      }
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 5px #000;
+      }
+      .btn {
+        background-color: yellow;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .btn:hover {
+        background-color: gold;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 1);
+      }
+      .features {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <h1>🔥 Red Club - Red Verificada 🔥</h1>
+      <a class="btn" href="https://wa.me/5493518761399" onclick="enviarEvento()">💬 Hablar por WSP</a>
+      <div class="features">
+        <p>🎯 Acceso exclusivo a nuestra comunidad verificada con atención personalizada.</p>
+        <p>💬 Respuesta inmediata 24/7 vía WhatsApp para miembros activos.</p>
+        <p>🎰 Promociones rotativas, dinámicas y contenido personalizado.</p>
+        <p>📱 Experiencia 100% optimizada para dispositivos móviles.</p>
+        <p>🔐 Confianza, seguridad y privacidad garantizadas para nuestros usuarios.</p>
+        <p>👥 Usuarios activos en Red Club: 290</p>
+      </div>
     </div>
 
-    <div class="user-count">👥 Usuarios activos en Red Club: <span id="user-count">289</span></div>
+    <!-- Pixel nuevo corregido -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '747470498138166'); 
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
+    </noscript>
 
-    <div class="hidden-text">
-      Bienvenido a Red Club, tu espacio digital de conexión con beneficios exclusivos para usuarios registrados. Nuestra plataforma de servicios está diseñada para proveer soporte personalizado, acceso privado a contenidos exclusivos, y un entorno amigable y seguro. Consultá por atención directa mediante nuestros canales de contacto. Red Club no promueve servicios no permitidos ni actividades restringidas por políticas de publicidad. Utilizamos herramientas de analítica y seguimiento para mejorar tu experiencia.
-    </div>
-  </div>
-
-  <!-- Script: Fake Active Users + Conversions API -->
-  <script>
-    const countEl = document.getElementById('user-count');
-    let users = 289;
-    setInterval(() => {
-      users += Math.floor(Math.random() * 3 - 1);
-      if (users < 270) users = 270;
-      countEl.textContent = users;
-    }, 5000);
-
-    const access_token = 'EAAemHXV0ZBuEBPKJhXE4ABEmYl4vSgZABduD945nLmEQMOqJAZBTs9M8a5ihBqb8wMBlZCnes8qL3kSOXP2dd8tQuVatFDfcMjZAGh3uBz8SUOVyMfZCmcMJGf93YD5wHJzPKnCKzEA4IC40rl4u8jyTdnWGxNhTkR7AJ7rWeh8KHgsuUn49A6LdmhTNd3KavebAZDZD';
-    const pixel_id = '747470498138166';
-
-    function sendContactEvent() {
-      const url = `https://graph.facebook.com/v18.0/${pixel_id}/events?access_token=${access_token}`;
-
-      const body = {
-        data: [{
-          event_name: 'Contact',
-          event_time: Math.floor(Date.now() / 1000),
-          action_source: 'website',
-          event_source_url: window.location.href
-        }]
-      };
-
-      console.log('📡 Enviando evento Contact a Meta con body:', body);
-
-      fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log('✅ Respuesta de Meta:', data);
-      })
-      .catch(error => {
-        console.error('❌ Error al enviar evento CAPI:', error);
-      });
-    }
-
-    document.getElementById("whatsappBtn").addEventListener("click", () => {
-      sendContactEvent();
-    });
-  </script>
-</body>
+    <!-- Evento desde API manual -->
+    <script>
+      function enviarEvento() {
+        fetch("https://graph.facebook.com/v18.0/747470498138166/events?access_token=EAAemHXV0ZBuEBPLo05ZCZAabpkxckvVm1q0Lh7WKwLbCdGjiI931eeGV9eX9OEZB9cCeggKuWWw6x89J8DRzqQ6tAb6MghPT94Qg7WzSPhaZAcfqM3fY6vtDUz09lVKjE02LearMzpfE9YyClTk8WZBV1vcMQHsXn5rrJbUGmYY7WHqm2D3ZBIVj7b8Iyczwz63kgZDZD", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: [{
+              event_name: "Contact",
+              event_time: Math.floor(Date.now() / 1000),
+              action_source: "website",
+              event_source_url: window.location.href,
+              event_id: "contact-test-manual"
+            }]
+          })
+        })
+        .then(r => r.json())
+        .then(console.log);
+      }
+    </script>
+  </body>
 </html>
