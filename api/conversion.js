@@ -6,6 +6,8 @@ export default async function handler(req, res) {
   }
 
   try {
+    const eventSourceUrl = req.body.event_source_url || req.headers.referer || '';
+
     const response = await fetch('https://graph.facebook.com/v18.0/747470498138166/events', {
       method: 'POST',
       headers: {
@@ -13,6 +15,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         ...req.body,
+        event_source_url: eventSourceUrl,
         access_token: 'EAAGmUJu5ZC8sBAOjXZA7OCTZAXZCZBZBGvvvRKEMnZA8dCtcPHZBDZC8Jdaz5vmhPH3ihGZC2HghN4ZA6cZCbVoIJvWwJbkUj9mnkKNyK1l6H7D9EK6HdYRYtE7Y8j3wHcwhT3gAfzGhKak68uK1ZBsyZAZAZAFNiGGHJNVZCuNRRWWUTSCFZCZB8hJXT3Qkpq3At5XQoZB0AoZD'
       }),
     });
