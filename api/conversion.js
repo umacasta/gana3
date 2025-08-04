@@ -1,32 +1,25 @@
+// /api/conversions.js
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
+    return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const accessToken = process.env.META_ACCESS_TOKEN;
-  const pixelId = '1196008671864934';
-
-  const body = {
-    event_name: 'Lead',
-    event_time: Math.floor(Date.now() / 1000),
-    event_source_url: req.headers.referer || 'https://linkdecontacto.vercel.app',
-    action_source: 'website',
-    user_data: {
-      client_ip_address: req.headers['x-forwarded-for'] || req.connection?.remoteAddress,
-      client_user_agent: req.headers['user-agent'],
-    }
-  };
-
   try {
-    const response = await fetch(`https://graph.facebook.com/v17.0/${pixelId}/events?access_token=${accessToken}`, {
+    const response = await fetch('https://graph.facebook.com/v18.0/747470498138166/events', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: [body] })
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...req.body,
+        access_token: 'EAAGmUJu5ZC8sBAOjXZA7OCTZAXZCZBZBGvvvRKEMnZA8dCtcPHZBDZC8Jdaz5vmhPH3ihGZC2HghN4ZA6cZCbVoIJvWwJbkUj9mnkKNyK1l6H7D9EK6HdYRYtE7Y8j3wHcwhT3gAfzGhKak68uK1ZBsyZAZAZAFNiGGHJNVZCuNRRWWUTSCFZCZB8hJXT3Qkpq3At5XQoZB0AoZD'
+      }),
     });
 
-    const result = await response.json();
-    return res.status(200).json(result);
+    const data = await response.json();
+    return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: 'Error sending event to Meta' });
+    return res.status(500).json({ error: 'Error al enviar evento a Meta' });
   }
 }
