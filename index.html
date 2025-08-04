@@ -1,117 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Red Club - Red Verificada</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        color: white;
-        text-align: center;
-        background: url('perro-morado.png') no-repeat center center;
-        background-size: cover;
-        background-attachment: scroll;
-        overflow: hidden;
-        animation: backgroundMove 30s ease-in-out infinite alternate;
-      }
-      @keyframes backgroundMove {
-        0% {
-          background-position: center top;
-        }
-        100% {
-          background-position: center bottom;
-        }
-      }
-      .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 5px #000;
-      }
-      .btn {
-        background-color: yellow;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 30px;
-        font-size: 1.2rem;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-      .btn:hover {
-        background-color: gold;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 1);
-      }
-      .features {
-        margin-top: 2rem;
-        font-size: 1.1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hero">
-      <h1>🔥 Red Club - Red Verificada 🔥</h1>
-      <a class="btn" href="https://wa.me/5493518761399" onclick="enviarEvento()">💬 Hablar por WSP</a>
-      <div class="features">
-        <p>🎯 Acceso exclusivo a nuestra comunidad verificada con atención personalizada.</p>
-        <p>💬 Respuesta inmediata 24/7 vía WhatsApp para miembros activos.</p>
-        <p>🎰 Promociones rotativas, dinámicas y contenido personalizado.</p>
-        <p>📱 Experiencia 100% optimizada para dispositivos móviles.</p>
-        <p>🔐 Confianza, seguridad y privacidad garantizadas para nuestros usuarios.</p>
-        <p>👥 Usuarios activos en Red Club: 290</p>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganamos.co - ¡Gana y Disfruta!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+      background: url('perro-morado.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll;
+      overflow: hidden;
+      animation: backgroundMove 30s ease-in-out infinite alternate;
+    }
 
-    <!-- Pixel nuevo corregido -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '747470498138166'); 
-      fbq('track', 'PageView');
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
-    </noscript>
+    @keyframes backgroundMove {
+      0% { background-position: center top; }
+      100% { background-position: center bottom; }
+    }
 
-    <!-- Evento desde API manual -->
-    <script>
-      function enviarEvento() {
-        fetch("https://graph.facebook.com/v18.0/747470498138166/events?access_token=EAAemHXV0ZBuEBPLo05ZCZAabpkxckvVm1q0Lh7WKwLbCdGjiI931eeGV9eX9OEZB9cCeggKuWWw6x89J8DRzqQ6tAb6MghPT94Qg7WzSPhaZAcfqM3fY6vtDUz09lVKjE02LearMzpfE9YyClTk8WZBV1vcMQHsXn5rrJbUGmYY7WHqm2D3ZBIVj7b8Iyczwz63kgZDZD", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            data: [{
-              event_name: "Contact",
-              event_time: Math.floor(Date.now() / 1000),
-              action_source: "website",
-              event_source_url: window.location.href,
-              event_id: "contact-test-manual"
-            }]
-          })
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .btn {
+      background-color: #fcbf49;
+      color: black;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f77f00;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>¡DUPLICAMOS TU CARGA HOY!</h1>
+    <p>Promoción exclusiva por tiempo limitado</p>
+    <a href="https://wa.me/5493518761399" class="btn" onclick="enviarEventoContact()">💬 Hablar por WSP</a>
+  </div>
+
+  <script>
+    function enviarEventoContact() {
+      fetch("https://graph.facebook.com/v19.0/747470498138166/events?access_token=EAAemHXV0ZBuEBPPa6DpTkSbblv8TRZAaSQDAzSSuFHS6ZCSilx9ldZBYtLnD40HXHYhaa5HvGwihipmZAuDlBUPCMJppzmcO5zZAlOcaiLJWuX8VilTyIZAmmtOUPZCYawZCF7dlbrRZCs1Tt9BtQGGP2ZA8ImKizzh9RP7wyhWYVom6kByFKpC6rpR11mA2YXUnVQEJgZDZD", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          data: [{
+            event_name: "Contact",
+            event_time: Math.floor(Date.now() / 1000),
+            action_source: "website",
+            event_source_url: "https://gana3-7f5l.vercel.app/",
+            user_data: {
+              client_user_agent: navigator.userAgent
+            }
+          }]
         })
-        .then(r => r.json())
-        .then(console.log);
-      }
-    </script>
-  </body>
+      })
+      .then(response => console.log("Evento Contact enviado vía CAPI"))
+      .catch(error => console.error("Error al enviar evento CAPI:", error));
+    }
+  </script>
+</body>
 </html>
