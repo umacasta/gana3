@@ -1,103 +1,240 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Club</title>
-  <meta name="facebook-domain-verification" content="PIXELID_747470498138166">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganamos.co - ¡Gana y Disfruta!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+      background: url('perro-morado.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll;
+      overflow: hidden;
+      animation: backgroundMove 30s ease-in-out infinite alternate;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      backdrop-filter: brightness(0.7);
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 15px #ff00f7, 0 0 30px #ff00f7;
+      margin-bottom: 1rem;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      text-shadow: 0 0 5px #000;
+    }
+    .cta {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 0 20px #ffd700;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-25deg);
+      animation: shine 2s infinite;
+    }
+    .cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #ffffff;
+    }
+    .emoji-deco {
+      position: absolute;
+      font-size: 2.5rem;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+    .deco1 { top: 10%; left: 15%; animation-delay: 0s; }
+    .deco2 { top: 30%; right: 10%; animation-delay: 2s; }
+    .deco3 { bottom: 15%; left: 25%; animation-delay: 4s; }
+    .deco4 { bottom: 10%; right: 20%; animation-delay: 1s; }
+
+    .countdown {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .gift-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #ff0080;
+      border-radius: 50%;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      color: #fff;
+      box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .gift-box:hover {
+      box-shadow: 0 0 20px #fff, 0 0 30px #fff;
+    }
+
+    .gift-text {
+      position: absolute;
+      bottom: -30px;
+      background: #222;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .gift-popup {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #111;
+      color: #fff;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      padding: 15px;
+      width: 220px;
+      box-shadow: 0 0 10px #ffd700;
+      display: none;
+      z-index: 9999;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes neonGlow {
+      0% { text-shadow: 0 0 10px #ff00f7, 0 0 20px #ff00f7; }
+      100% { text-shadow: 0 0 20px #ff00f7, 0 0 40px #ff00f7; }
+    }
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+    @keyframes backgroundMove {
+      0% { background-position: center center; }
+      100% { background-position: center 10%; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '747470498138166'); 
+    fbq('init', '747470498138166');
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=747470498138166&ev=PageView&noscript=1"/>
   </noscript>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: url('https://i.ibb.co/FHxHYrK/perro-morado.png') no-repeat center center;
-      background-size: cover;
-      color: white;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3em;
-      margin-top: 20vh;
-      text-shadow: 2px 2px 8px #000;
-    }
-    p {
-      font-size: 1.3em;
-    }
-    .btn {
-      background-color: #00c853;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 1.2em;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 2px 2px 10px #000;
-    }
-    .users {
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #ccc;
-    }
-    .popup {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 10px 15px;
-      color: white;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-      animation: fade 4s ease-out;
-    }
-    @keyframes fade {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-  </style>
 </head>
+
 <body>
-  <h1>Bienvenido a Red Club</h1>
-  <p>La plataforma más confiable, rápida y segura.</p>
-  <p class="users">Usuarios activos: 612</p>
-  <a class="btn" id="contactBtn" href="https://wa.me/5493518761399?text=Hola,%20quiero%20crear%20un%20usuario">💬 Hablar por WSP</a>
+  <div class="hero">
+    <h1>🔥 ¡REGÍSTRATE Y COMIENZA A GANAR! 🔥</h1>
+    <p>Carga mínima: <strong>$3000</strong></p>
+    <p>🎰 +2000 tragamonedas | ✨ Retiros sin límite | 🍱 Bonos exclusivos</p>
+    <a href="https://wa.me/3518761399?text=Hola%2C%20quiero%20crear%20un%20usuario" class="cta" id="whatsapp-link">💬 Hablar por WhatsApp</a>
+    <div class="countdown" id="countdown">⏳ ¡Quedan 15:00 para reclamar tu bono!</div>
 
+    <!-- Emojis decorativos -->
+    <div class="emoji-deco deco1">🎰</div>
+    <div class="emoji-deco deco2">💎</div>
+    <div class="emoji-deco deco3">🃏</div>
+    <div class="emoji-deco deco4">🎲</div>
+  </div>
+
+  <!-- Caja de regalo -->
+  <div class="gift-box" id="giftBox">🏱<span class="gift-text">¡Tocá acá para un regalo sorpresa!</span></div>
+  <div class="gift-popup" id="giftPopup">🏱 ¡Ganaste un bono sorpresa del 20%!<br>Pedilo por WhatsApp ahora 👇</div>
+
+  <!-- Scripts -->
   <script>
-    // Evento CAPI sin servidor (manual)
-    document.getElementById('contactBtn').addEventListener('click', function() {
-      fbq('track', 'Contact');
-    });
+    document.addEventListener("DOMContentLoaded", function () {
+      let timeLeft = 15 * 60;
+      const countdown = document.getElementById("countdown");
+      setInterval(() => {
+        if (timeLeft <= 0) return;
+        timeLeft--;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        countdown.textContent = `⏳ ¡Quedan ${min}:${sec.toString().padStart(2, '0')} para reclamar tu bono!`;
+      }, 1000);
 
-    // Notificaciones animadas de ganadores
-    const names = ['Martín', 'Lucía', 'Sofía', 'Diego', 'Florencia', 'Pablo', 'Camila'];
-    const premios = ['$5.000', '$10.000', '$20.000', 'una ruleta gratis', 'un bono doble'];
-    function showPopup() {
-      const popup = document.createElement('div');
-      popup.className = 'popup';
-      const name = names[Math.floor(Math.random() * names.length)];
-      const premio = premios[Math.floor(Math.random() * premios.length)];
-      popup.innerText = 🎉 ${name} acaba de ganar ${premio};
-      document.body.appendChild(popup);
-      setTimeout(() => popup.remove(), 4000);
-    }
-    setInterval(showPopup, 15000);
+      function sendContactEvent() {
+        fbq('track', 'Contact');
+        fetch('https://graph.facebook.com/v18.0/747470498138166/events', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            data: [{
+              event_name: 'Contact',
+              event_time: Math.floor(Date.now() / 1000),
+              event_source_url: window.location.href,
+              action_source: 'website'
+            }],
+            access_token: 'EAAemHXV0ZBuEBPIueZCJzFPFebM1C2bTTFrrLUtcTIIU1W5nJQlfJ6JSikhVMHQdCc9cxqAdZAJkjvyNGdNl95MJn18x0ACAQX9I9z2EIYmPIVn1rxyyBgZCRwQ7jczOQuHNilANBh184D7SLkCtXTzMmJPdqgkAekNNSCYBiZAy8ckuTPbBt6mMOAIDyLVFECwZDZD'
+          })
+        });
+      }
+
+      document.getElementById("giftBox").addEventListener("click", () => {
+        sendContactEvent();
+        window.open("https://wa.me/3518761399?text=Hola,%20quiero%20crear%20un%20usuario!!%20y%20mi%20bono%20sorpresa", "_blank");
+      });
+
+      document.getElementById("whatsapp-link").addEventListener("click", sendContactEvent);
+    });
   </script>
 </body>
 </html>
